@@ -12,10 +12,9 @@ public class MyCricketProfileWeb {
 	public static void main(String[] args) {
 		SpringApplication.run(MyCricketProfileWeb.class, args);
 	}
-	
+
 	@GetMapping(path = "/")
 	public String test() {
 		return "Working!!";
 	}
-
 }
