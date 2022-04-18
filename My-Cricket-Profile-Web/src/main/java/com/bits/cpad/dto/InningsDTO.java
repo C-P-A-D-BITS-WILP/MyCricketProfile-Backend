@@ -11,7 +11,7 @@ public class InningsDTO {
 	private Integer totalScore;
 	private Float overs;
 	private Integer wickets;
-	private Integer extras;
+	private String extras;
 
 	public Integer getId() {
 		return id;
@@ -77,12 +77,11 @@ public class InningsDTO {
 		this.wickets = wickets;
 	}
 
-	public Integer getExtras() {
+	public String getExtras() {
 		return extras;
 	}
 
-	public void setExtras(Integer extras) {
+	public void setExtras(String extras) {
 		this.extras = extras;
 	}
-
 }

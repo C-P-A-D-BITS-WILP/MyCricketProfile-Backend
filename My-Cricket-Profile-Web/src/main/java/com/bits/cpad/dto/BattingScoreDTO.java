@@ -20,6 +20,7 @@ public class BattingScoreDTO {
 		this.fours = k;
 		this.sixers = l;
 		this.setStrikeRate();
+		this.setDismissed();
 	}
 
 	public String getBatsmanName() {
@@ -85,15 +86,22 @@ public class BattingScoreDTO {
 	}
 
 	private void setStrikeRate() {
-		this.strikeRate = ((float) this.runs / (float) this.balls) * 100;
+		if (this.balls == 0)
+			this.strikeRate = 0.0f;
+		else {
+			this.strikeRate = ((float) this.runs / (float) this.balls) * 100;
+		}
 	}
 
 	public boolean isDismissed() {
 		return dismissed;
 	}
 
-	public void setDismissed(boolean dismissed) {
-		this.dismissed = dismissed;
+	private void setDismissed() {
+		if(this.bowledBy.isEmpty())
+			this.dismissed = false;
+		else
+			this.dismissed = true;
 	}
 
 }
