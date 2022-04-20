@@ -23,12 +23,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-MongoAdapter/target/*
-MongoAdapter/.settings/*
-MongoAdapter/.project
-MongoAdapter/.classpath
+My-Cricket-Profile-Web/target/*
+My-Cricket-Profile-Web/.settings/*
+My-Cricket-Profile-Web/.project
+My-Cricket-Profile-Web/.classpath
 
-MongoRest/target/*
+My-Cricket-Profile-Persistence/target/*
 .settings/*
 .project
 *.prefs
