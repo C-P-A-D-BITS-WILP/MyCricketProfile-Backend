@@ -22,11 +22,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.bits.cpad</groupId>
 			<artifactId>My-Cricket-Profile-Persistence</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency> -->
+		</dependency>
 	</dependencies>
 
 	<build>

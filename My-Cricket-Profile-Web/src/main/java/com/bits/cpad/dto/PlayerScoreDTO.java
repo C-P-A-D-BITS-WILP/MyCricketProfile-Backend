@@ -1,6 +1,6 @@
 package com.bits.cpad.dto;
 
-public class PlayerScore {
+public class PlayerScoreDTO {
 	Integer matches;
 
 	Integer battingInnings;

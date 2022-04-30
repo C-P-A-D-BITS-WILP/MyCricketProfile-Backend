@@ -2,27 +2,33 @@ package com.bits.cpad.dto;
 
 import java.util.List;
 
-public class Team {
+public class TeamDTO {
 	String name;
 	Integer id;
 	String identifier;
-	Player owner;
-	Player captain;
+	UserDTO owner;
+	PlayerDTO captain;
 	String location;
-	List<Player> teamMembers;
+	List<PlayerDTO> players;
+	Integer teamSize;
 
-	public Team(int id, String teamName) {
+	public TeamDTO(int id, String teamName) {
 		this.id = id;
 		this.name = teamName;
 	}
 
-	public Team(int id, String teamName, String identifier, Player owner, Player captain, String location) {
+	public TeamDTO(int id, String teamName, String identifier, UserDTO owner, PlayerDTO captain, String location, int size) {
 		this.id = id;
 		this.name = teamName;
 		this.identifier = identifier;
 		this.owner = owner;
 		this.captain = captain;
 		this.location = location;
+		this.teamSize = size;
+	}
+
+	public TeamDTO() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {
@@ -49,19 +55,19 @@ public class Team {
 		this.identifier = identifier;
 	}
 
-	public Player getOwner() {
+	public UserDTO getOwner() {
 		return owner;
 	}
 
-	public void setOwner(Player owner) {
+	public void setOwner(UserDTO owner) {
 		this.owner = owner;
 	}
 
-	public Player getCaptain() {
+	public PlayerDTO getCaptain() {
 		return captain;
 	}
 
-	public void setCaptain(Player captain) {
+	public void setCaptain(PlayerDTO captain) {
 		this.captain = captain;
 	}
 
@@ -73,11 +79,20 @@ public class Team {
 		this.location = location;
 	}
 
-	public List<Player> getTeamMembers() {
-		return teamMembers;
+	public List<PlayerDTO> getPlayers() {
+		return players;
 	}
 
-	public void setTeamMembers(List<Player> teamMembers) {
-		this.teamMembers = teamMembers;
+	public void setPlayers(List<PlayerDTO> players) {
+		this.players = players;
 	}
+
+	public Integer getTeamSize() {
+		return teamSize;
+	}
+
+	public void setTeamSize(Integer teamSize) {
+		this.teamSize = teamSize;
+	}
+
 }

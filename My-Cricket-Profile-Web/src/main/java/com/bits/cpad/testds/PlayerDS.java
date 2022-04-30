@@ -5,38 +5,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.bits.cpad.dto.Player;
-import com.bits.cpad.dto.PlayerScore;
+import com.bits.cpad.dto.PlayerDTO;
+import com.bits.cpad.dto.PlayerScoreDTO;
 
 public class PlayerDS {
 
-	static Map<Integer, Player> PLAYERS;
+	static Map<Integer, PlayerDTO> PLAYERS;
 
 	static {
-		PLAYERS = new HashMap<Integer, Player>();
-		PLAYERS.put(1, new Player(1, "Sachin Tendulkar"));
-		PLAYERS.put(2, new Player(2, "Virat Kohli"));
-		PLAYERS.put(3, new Player(3, "Mahindra Singh Dhoni"));
-		PLAYERS.put(4, new Player(4, "Rohit Sharma"));
-		PLAYERS.put(5, new Player(5, "KL Rahul"));
-		PLAYERS.put(6, new Player(6, "Mayank Agarwal"));
-		PLAYERS.put(7, new Player(7, "Chris Gayle"));
-		PLAYERS.put(8, new Player(8, "A B De Villiars"));
-		PLAYERS.put(9, new Player(9, "Robin Uttappa"));
+		PLAYERS = new HashMap<Integer, PlayerDTO>();
+		PLAYERS.put(1, new PlayerDTO(1, "Sachin Tendulkar"));
+		PLAYERS.put(2, new PlayerDTO(2, "Virat Kohli"));
+		PLAYERS.put(3, new PlayerDTO(3, "Mahindra Singh Dhoni"));
+		PLAYERS.put(4, new PlayerDTO(4, "Rohit Sharma"));
+		PLAYERS.put(5, new PlayerDTO(5, "KL Rahul"));
+		PLAYERS.put(6, new PlayerDTO(6, "Mayank Agarwal"));
+		PLAYERS.put(7, new PlayerDTO(7, "Chris Gayle"));
+		PLAYERS.put(8, new PlayerDTO(8, "A B De Villiars"));
+		PLAYERS.put(9, new PlayerDTO(9, "Robin Uttappa"));
 		PLAYERS.put(10, populateDhawan());
 	}
 
-	public static List<Player> getPlayerList(int startIndex, int endIndex) {
-		List<Player> playerList = new ArrayList<Player>(PLAYERS.values());
+	public static List<PlayerDTO> getPlayerList(int startIndex, int endIndex) {
+		List<PlayerDTO> playerList = new ArrayList<PlayerDTO>(PLAYERS.values());
 		return playerList.subList(startIndex, endIndex);
 	}
 
-	public static Player getPlayer(int playerId) {
+	public static PlayerDTO getPlayer(int playerId) {
 		return PLAYERS.get(playerId);
 	}
 
-	private static Player populateDhawan() {
-		Player player = new Player();
+	private static PlayerDTO populateDhawan() {
+		PlayerDTO player = new PlayerDTO();
 		player.setId(10);
 		player.setName("Shikar Dhawan");
 		player.setAge(35);
@@ -44,7 +44,7 @@ public class PlayerDS {
 		player.setBowlingStyle("Right-arm offbreak");
 		player.setRole("Batsman");
 
-		PlayerScore score = new PlayerScore();
+		PlayerScoreDTO score = new PlayerScoreDTO();
 		score.setMatches(34);
 
 		score.setBattingInnings(58);

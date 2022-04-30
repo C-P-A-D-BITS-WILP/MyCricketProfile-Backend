@@ -1,18 +1,33 @@
 package com.bits.cpad.dto;
 
-public class Player {
+public class PlayerDTO {
 	Integer id;
 	String name;
 	Integer age;
 	String role;
 	String battingStyle;
 	String bowlingStyle;
-	PlayerScore score;
+	PlayerScoreDTO score;
+	String playerStatus = "Pending";
 
-	public Player() {
+	public String getPlayerStatus() {
+		return playerStatus;
 	}
 
-	public Player(int id, String name) {
+	public void setPlayerStatus(String playerStatus) {
+		this.playerStatus = playerStatus;
+	}
+
+	public PlayerDTO() {
+	}
+
+	public PlayerDTO(int id, String name, String status) {
+		this.id = id;
+		this.name = name;
+		this.playerStatus = status;
+	}
+
+	public PlayerDTO(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -65,11 +80,11 @@ public class Player {
 		this.bowlingStyle = bowlingStyle;
 	}
 
-	public PlayerScore getScore() {
+	public PlayerScoreDTO getScore() {
 		return score;
 	}
 
-	public void setScore(PlayerScore score) {
+	public void setScore(PlayerScoreDTO score) {
 		this.score = score;
 	}
 
