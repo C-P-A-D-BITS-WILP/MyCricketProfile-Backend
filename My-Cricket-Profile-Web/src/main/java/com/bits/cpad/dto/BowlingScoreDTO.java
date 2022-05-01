@@ -3,15 +3,15 @@ package com.bits.cpad.dto;
 public class BowlingScoreDTO {
 
 	private String bowlerName;
-	private Float overs;
+	private Double overs;
 	private Integer maidens;
 	private Integer runsGiven;
 	private Integer wickets;
 	private Integer noBalls;
 	private Integer wides;
-	private Float economy;
+	private Double economy;
 
-	public BowlingScoreDTO(String bowlerName, float overs, int maidens, int runsGiven, int wickets, int noBalls, int wides) {
+	public BowlingScoreDTO(String bowlerName, double overs, int maidens, int runsGiven, int wickets, int noBalls, int wides) {
 		this.bowlerName = bowlerName;
 		this.overs = overs;
 		this.maidens = maidens;
@@ -22,6 +22,10 @@ public class BowlingScoreDTO {
 		this.setEconomy();
 	}
 
+	public BowlingScoreDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getBowlerName() {
 		return bowlerName;
 	}
@@ -30,11 +34,11 @@ public class BowlingScoreDTO {
 		this.bowlerName = bowlerName;
 	}
 
-	public Float getOvers() {
+	public Double getOvers() {
 		return overs;
 	}
 
-	public void setOvers(Float overs) {
+	public void setOvers(Double overs) {
 		this.overs = overs;
 		this.setEconomy();
 	}
@@ -72,13 +76,13 @@ public class BowlingScoreDTO {
 		this.wides = wides;
 	}
 
-	public Float getEconomy() {
+	public Double getEconomy() {
 		return economy;
 	}
 
 	private void setEconomy() {
-		if (this.overs == 0) {
-			this.economy = 0.0f;
+		if (this.runsGiven == null || this.overs == null || this.overs == 0) {
+			this.economy = 0.0;
 		} else {
 			this.economy = this.runsGiven / this.overs;
 		}

@@ -39,7 +39,7 @@ public class TournamentController {
 		t.setFee(100);
 		t.setStartDate(new Date(2022, 4, 1));
 		t.setEndDate(new Date(2022, 5, 1));
-		t.setOrganizer(userRepository.findById(5).get());
+//		t.setOrganizer(userRepository.findById(5).get());
 
 		List<Team> teams = t.getTeams();
 
@@ -59,7 +59,7 @@ public class TournamentController {
 	public List<TournamentDTO> getTournamentDetails() {
 		Iterable<Tournament> t = tournamentRepository.findAll();
 		List<TournamentDTO> tournamentDTOList = EntityToDTOMapper
-				.tournament(StreamSupport.stream(t.spliterator(), false).collect(Collectors.toList()));
+				.getTournament(StreamSupport.stream(t.spliterator(), false).collect(Collectors.toList()));
 		return tournamentDTOList;
 	}
 

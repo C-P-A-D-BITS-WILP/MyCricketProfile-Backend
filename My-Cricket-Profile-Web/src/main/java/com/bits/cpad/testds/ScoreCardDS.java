@@ -17,7 +17,7 @@ public class ScoreCardDS {
 		InningsDTO innings1 = new InningsDTO();
 		innings1.setBattingTeamName("KXIP");
 		innings1.setTotalScore(151);
-		innings1.setOvers(20.0f);
+		innings1.setOvers(20.0);
 		innings1.setWickets(5);
 		innings1.setBowlingTeamName("SRH");
 		List<BattingScoreDTO> battingScores = new ArrayList<>();

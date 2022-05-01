@@ -9,6 +9,7 @@ public class PlayerDTO {
 	String bowlingStyle;
 	PlayerScoreDTO score;
 	String playerStatus = "Pending";
+	Integer teamMemberId;
 
 	public String getPlayerStatus() {
 		return playerStatus;
@@ -86,6 +87,14 @@ public class PlayerDTO {
 
 	public void setScore(PlayerScoreDTO score) {
 		this.score = score;
+	}
+
+	public Integer getTeamMemberId() {
+		return teamMemberId;
+	}
+
+	public void setTeamMemberId(Integer teamMemberId) {
+		this.teamMemberId = teamMemberId;
 	}
 
 }

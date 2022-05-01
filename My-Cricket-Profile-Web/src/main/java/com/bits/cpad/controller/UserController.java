@@ -1,24 +1,38 @@
 package com.bits.cpad.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bits.cpad.dto.UserDTO;
 import com.bits.cpad.entity.Team;
 import com.bits.cpad.entity.User;
 import com.bits.cpad.repository.TeamRepository;
 import com.bits.cpad.repository.UserRepository;
+import com.bits.cpad.service.UserService;
 
 @RestController
 public class UserController {
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private TeamRepository teamRepository;
+
+	@Autowired
+	private UserService userService;
+
+	@PostMapping(path = "/register-user")
+	public UserDTO registerUser(@RequestBody Map<?,?> newUser) {
+		System.out.println(newUser);
+		return userService.registerUser(newUser);
+	}
 
 	@GetMapping(path = "/addUser")
 	public String addNewUser() {
@@ -31,7 +45,7 @@ public class UserController {
 	@GetMapping(path = "/addTeam")
 	public String createTeam() {
 		System.out.println("Adding Dummy User");
-		
+
 		Team team = getTeam();
 		teamRepository.save(team);
 		return "Team Created";
@@ -43,12 +57,12 @@ public class UserController {
 
 		List<User> players = team.getPlayers();
 
-		players.add(userRepository.findById(1003).get());
-		players.add(userRepository.findById(1004).get());
-		players.add(userRepository.findById(1005).get());
+//		players.add(userRepository.findById(1003).get());
+//		players.add(userRepository.findById(1004).get());
+//		players.add(userRepository.findById(1005).get());
 
 		team.setPlayers(players);
-		
+
 		teamRepository.save(team);
 		return "Success";
 	}

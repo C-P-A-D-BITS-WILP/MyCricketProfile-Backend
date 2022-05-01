@@ -23,6 +23,10 @@ public class BattingScoreDTO {
 		this.setDismissed();
 	}
 
+	public BattingScoreDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getBatsmanName() {
 		return batsmanName;
 	}
@@ -86,7 +90,7 @@ public class BattingScoreDTO {
 	}
 
 	private void setStrikeRate() {
-		if (this.balls == 0)
+		if (this.balls == null || this.balls == 0)
 			this.strikeRate = 0.0f;
 		else {
 			this.strikeRate = ((float) this.runs / (float) this.balls) * 100;

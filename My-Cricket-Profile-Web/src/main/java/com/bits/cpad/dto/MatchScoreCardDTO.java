@@ -3,6 +3,7 @@ package com.bits.cpad.dto;
 import java.util.List;
 
 public class MatchScoreCardDTO {
+	
 	private Integer id;
 	private List<InningsDTO> innings;
 	private String matchResult;

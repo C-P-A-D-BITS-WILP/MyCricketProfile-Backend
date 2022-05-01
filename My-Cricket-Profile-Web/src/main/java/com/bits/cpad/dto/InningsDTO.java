@@ -9,7 +9,7 @@ public class InningsDTO {
 	private List<BattingScoreDTO> battingScores;
 	private List<BowlingScoreDTO> bowlingScores;
 	private Integer totalScore;
-	private Float overs;
+	private Double overs;
 	private Integer wickets;
 	private String extras;
 
@@ -61,11 +61,11 @@ public class InningsDTO {
 		this.totalScore = totalScore;
 	}
 
-	public Float getOvers() {
+	public Double getOvers() {
 		return overs;
 	}
 
-	public void setOvers(Float overs) {
+	public void setOvers(Double overs) {
 		this.overs = overs;
 	}
 

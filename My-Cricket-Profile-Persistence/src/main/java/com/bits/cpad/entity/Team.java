@@ -12,8 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
+
+@NamedQueries({ @NamedQuery(name = "findByUserId", query = "from Team t where t.owner.id = :userId") })
 @Entity
 public class Team {
 
@@ -35,10 +40,13 @@ public class Team {
 	@JoinColumn(name = "captain_fk", referencedColumnName = "id")
 	private User captain;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "team_members", joinColumns = { @JoinColumn(name = "team_fk") }, inverseJoinColumns = {
 			@JoinColumn(name = "player_fk") })
 	private List<User> players;
+
+	@OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
+	private List<TeamMembers> teamMembers;
 
 	@ManyToMany(mappedBy = "teams", fetch = FetchType.LAZY)
 	private List<Tournament> tournaments;
@@ -117,6 +125,14 @@ public class Team {
 
 	public void setTournaments(List<Tournament> tournaments) {
 		this.tournaments = tournaments;
+	}
+
+	public List<TeamMembers> getTeamMembers() {
+		return teamMembers;
+	}
+
+	public void setTeamMembers(List<TeamMembers> teamMembers) {
+		this.teamMembers = teamMembers;
 	}
 
 }

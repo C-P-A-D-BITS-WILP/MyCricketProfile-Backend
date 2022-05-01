@@ -1,7 +1,11 @@
 package com.bits.cpad.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,14 +30,20 @@ public class InningsScore {
 	@Column(name = "wickets")
 	private Integer wickets;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "batting_team_fk")
 	private Team battingTeam;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "bowling_team_fk")
 	private Team bowlingTeam;
 
+	@OneToMany(mappedBy = "innings", cascade = CascadeType.ALL)
+	private List<BattingScore> battingScore;
+
+	@OneToMany(mappedBy = "innings", cascade = CascadeType.ALL)
+	private List<BowlingScore> bowlingScore;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -80,6 +90,22 @@ public class InningsScore {
 
 	public void setBowlingTeam(Team bowlingTeam) {
 		this.bowlingTeam = bowlingTeam;
+	}
+
+	public List<BattingScore> getBattingScore() {
+		return battingScore;
+	}
+
+	public void setBattingScore(List<BattingScore> battingScore) {
+		this.battingScore = battingScore;
+	}
+
+	public List<BowlingScore> getBowlingScore() {
+		return bowlingScore;
+	}
+
+	public void setBowlingScore(List<BowlingScore> bowlingScore) {
+		this.bowlingScore = bowlingScore;
 	}
 
 }

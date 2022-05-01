@@ -1,5 +1,6 @@
 package com.bits.cpad.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,15 +26,15 @@ public class BattingScore {
 
 	private Integer sixers;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "dismissal_fk")
 	private Dismissal dismissal;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "player_fk")
 	private User player;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "innings_fk")
 	private InningsScore innings;
 

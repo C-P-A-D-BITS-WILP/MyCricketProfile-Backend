@@ -1,5 +1,8 @@
 package com.bits.cpad.entity;
 
+import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "cricket_match")
@@ -21,29 +26,33 @@ public class CricketMatch {
 	@Column(name = "match_type")
 	private String matchType;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "mom_fk")
 	private User mom;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "team1_fk")
 	private Team team1;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "team2_fk")
 	private Team team2;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "tournament_fk")
 	private Tournament tournament;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "winning_team_fk")
 	private Team winningTeam;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "scorecard_fk")
 	private ScoreCard scoreCard;
+
+	@Column(name="match_date")
+	@Temporal(TemporalType.DATE)
+	private Date matchDate;
 
 	public Integer getId() {
 		return id;
@@ -101,4 +110,21 @@ public class CricketMatch {
 		this.winningTeam = winningTeam;
 	}
 
+	public ScoreCard getScoreCard() {
+		return scoreCard;
+	}
+
+	public void setScoreCard(ScoreCard scoreCard) {
+		this.scoreCard = scoreCard;
+	}
+
+	public Date getMatchDate() {
+		return matchDate;
+	}
+
+	public void setMatchDate(Date matchDate) {
+		this.matchDate = matchDate;
+	}
+
+	
 }

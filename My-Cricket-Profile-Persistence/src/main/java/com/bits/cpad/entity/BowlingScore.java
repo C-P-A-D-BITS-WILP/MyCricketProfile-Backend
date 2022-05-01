@@ -1,5 +1,6 @@
 package com.bits.cpad.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,9 @@ public class BowlingScore {
 	private Integer id;
 
 	private Double overs;
+
 	private Integer fiver;
+
 	private Integer maidens;
 
 	@Column(name = "runs_given")
@@ -26,11 +29,11 @@ public class BowlingScore {
 
 	private Integer wickets;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "player_fk")
 	private User player;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "innings_fk")
 	private InningsScore innings;
 
@@ -98,5 +101,4 @@ public class BowlingScore {
 		this.innings = innings;
 	}
 
-	
 }
