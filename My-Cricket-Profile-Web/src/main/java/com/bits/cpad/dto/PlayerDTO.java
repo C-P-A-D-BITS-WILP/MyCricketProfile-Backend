@@ -1,14 +1,17 @@
 package com.bits.cpad.dto;
 
+import java.util.Date;
+
 public class PlayerDTO {
 	Integer id;
 	String name;
 	Integer age;
+	Date dob;
 	String role;
 	String battingStyle;
 	String bowlingStyle;
 	PlayerScoreDTO score;
-	String playerStatus = "Pending";
+	String playerStatus;
 	Integer teamMemberId;
 
 	public String getPlayerStatus() {
@@ -95,6 +98,14 @@ public class PlayerDTO {
 
 	public void setTeamMemberId(Integer teamMemberId) {
 		this.teamMemberId = teamMemberId;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
 	}
 
 }

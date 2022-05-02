@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.bits.cpad.dto.BattingScoreDTO;
 import com.bits.cpad.dto.BowlingScoreDTO;
+import com.bits.cpad.dto.DashboardScoreCardDTO;
 import com.bits.cpad.dto.InningsDTO;
 import com.bits.cpad.dto.MatchScoreCardDTO;
 
@@ -45,6 +46,17 @@ public class ScoreCardDS {
 		matchScoreCard.setInnings(inningsList);
 
 		return matchScoreCard;
+	}
+
+	public static List<DashboardScoreCardDTO> populateDummyData() {
+		List<DashboardScoreCardDTO> dtos = new ArrayList<DashboardScoreCardDTO>();
+		
+		dtos.add(new DashboardScoreCardDTO(1, "IPLT20", "LSG", 130, 2, 20, "KXIP", 0, 0, 0, "KXIP need 131 in 20 Overs" ));
+		dtos.add(new DashboardScoreCardDTO(2, "Pepsi Cup", "Ind", 130, 2, 30, "Eng", 0, 0, 0, "Ind won the toss and choose to bat"));
+		dtos.add(new DashboardScoreCardDTO(3, "Bilateral Series","RSA", 220, 8,  50,  "WI",  214,  10, 46.3, "RSA won by 6 Runs"));
+		dtos.add(new DashboardScoreCardDTO(4, "Bilateral Series", "Eng",  363, 5,  50,  "NZ",  290,  7, 50, "Eng won by 73 runs"));
+		dtos.add(new DashboardScoreCardDTO(5, "Pak tour of SL", "SL",  285, 4,  50,  "Pak",  236, 10, 42, "SL won by 49 runs"));
+		return dtos;
 	}
 
 }

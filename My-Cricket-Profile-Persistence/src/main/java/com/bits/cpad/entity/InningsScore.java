@@ -44,6 +44,8 @@ public class InningsScore {
 	@OneToMany(mappedBy = "innings", cascade = CascadeType.ALL)
 	private List<BowlingScore> bowlingScore;
 	
+	private String extras;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -108,4 +110,12 @@ public class InningsScore {
 		this.bowlingScore = bowlingScore;
 	}
 
+	public String getExtras() {
+		return extras;
+	}
+
+	public void setExtras(String extras) {
+		this.extras = extras;
+	}
+	
 }

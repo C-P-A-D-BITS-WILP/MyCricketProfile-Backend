@@ -7,8 +7,8 @@ public class PlayerScoreDTO {
 	Integer notOut;
 	Integer runsScored;
 	Integer highestScore;
-	Float battingAvg;
-	Float strikeRate;
+	Double battingAvg;
+	Double strikeRate;
 	Integer fifties;
 	Integer hundreds;
 
@@ -16,8 +16,8 @@ public class PlayerScoreDTO {
 	Integer ballsBowled;
 	Integer runsGiven;
 	Integer wickets;
-	Float bowlingAvg;
-	Float economy;
+	Double bowlingAvg;
+	Double economy;
 	Integer fiver;
 
 	public Integer getMatches() {
@@ -60,19 +60,19 @@ public class PlayerScoreDTO {
 		this.highestScore = highestScore;
 	}
 
-	public Float getBattingAvg() {
+	public Double getBattingAvg() {
 		return battingAvg;
 	}
 
-	public void setBattingAvg(Float battingAvg) {
+	public void setBattingAvg(Double battingAvg) {
 		this.battingAvg = battingAvg;
 	}
 
-	public Float getStrikeRate() {
+	public Double getStrikeRate() {
 		return strikeRate;
 	}
 
-	public void setStrikeRate(Float strikeRate) {
+	public void setStrikeRate(Double strikeRate) {
 		this.strikeRate = strikeRate;
 	}
 
@@ -124,19 +124,19 @@ public class PlayerScoreDTO {
 		this.wickets = wickets;
 	}
 
-	public Float getBowlingAvg() {
+	public Double getBowlingAvg() {
 		return bowlingAvg;
 	}
 
-	public void setBowlingAvg(Float bowlingAvg) {
+	public void setBowlingAvg(Double bowlingAvg) {
 		this.bowlingAvg = bowlingAvg;
 	}
 
-	public Float getEconomy() {
+	public Double getEconomy() {
 		return economy;
 	}
 
-	public void setEconomy(Float economy) {
+	public void setEconomy(Double economy) {
 		this.economy = economy;
 	}
 

@@ -28,6 +28,27 @@ public class DashboardScoreCardDTO {
 
 	private String summary;
 
+	public DashboardScoreCardDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public DashboardScoreCardDTO(int id, String tournamentName, String team1, int score1, int wickets1, double overs1,
+			String team2, int score2, int wickets2, double overs2, String summary) {
+		this.id = id;
+		this.tournamentName = tournamentName;
+		this.team1 = team1;
+		this.score1 = score1;
+		this.wickets1 = wickets1;
+		this.overs1 = overs1;
+
+		this.team2 = team2;
+		this.score2 = score2;
+		this.wickets2 = wickets2;
+		this.overs2 = overs2;
+
+		this.summary = summary;
+	}
+
 	public Integer getId() {
 		return id;
 	}

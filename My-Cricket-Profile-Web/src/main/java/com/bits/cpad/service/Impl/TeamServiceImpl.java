@@ -64,7 +64,7 @@ public class TeamServiceImpl implements TeamService {
 		team.setLocation(newTeam.get("teamLocation").toString());
 		team.setSize(Integer.parseInt(newTeam.get("teamSize").toString()));
 		team.setTeamName(newTeam.get("teamName").toString());
-		team.setTeamIdentifier("#" + Utility.generateHashValue(5));
+		team.setTeamIdentifier(Utility.generateHashValue(5));
 		teamRepo.save(team);
 		TeamDTO dto = EntityToDTOMapper.getTeam(team);
 

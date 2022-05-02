@@ -51,8 +51,8 @@ public class PlayerDS {
 		score.setNotOut(1);
 		score.setRunsScored(2315);
 		score.setHighestScore(190);
-		score.setStrikeRate(66.95F);
-		score.setBattingAvg(40.61F);
+		score.setStrikeRate(66.95);
+		score.setBattingAvg(40.61);
 		score.setFifties(5);
 		score.setHundreds(7);
 
@@ -60,8 +60,8 @@ public class PlayerDS {
 		score.setBallsBowled(54);
 		score.setRunsGiven(18);
 		score.setWickets(0);
-		score.setBowlingAvg(0.0F);
-		score.setEconomy(2.0F);
+		score.setBowlingAvg(0.0);
+		score.setEconomy(2.0);
 		score.setFiver(0);
 
 		player.setScore(score);

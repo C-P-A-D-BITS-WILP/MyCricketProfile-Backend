@@ -1,5 +1,7 @@
 package com.bits.cpad.dto;
 
+import com.bits.cpad.utils.Utility;
+
 public class BowlingScoreDTO {
 
 	private String bowlerName;
@@ -11,7 +13,8 @@ public class BowlingScoreDTO {
 	private Integer wides;
 	private Double economy;
 
-	public BowlingScoreDTO(String bowlerName, double overs, int maidens, int runsGiven, int wickets, int noBalls, int wides) {
+	public BowlingScoreDTO(String bowlerName, double overs, int maidens, int runsGiven, int wickets, int noBalls,
+			int wides) {
 		this.bowlerName = bowlerName;
 		this.overs = overs;
 		this.maidens = maidens;
@@ -84,7 +87,7 @@ public class BowlingScoreDTO {
 		if (this.runsGiven == null || this.overs == null || this.overs == 0) {
 			this.economy = 0.0;
 		} else {
-			this.economy = this.runsGiven / this.overs;
+			this.economy = Utility.round(this.runsGiven / this.overs, 2);
 		}
 	}
 

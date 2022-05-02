@@ -1,5 +1,7 @@
 package com.bits.cpad.dto;
 
+import com.bits.cpad.utils.Utility;
+
 public class BattingScoreDTO {
 	private String batsmanName;
 	private String caughtBy;
@@ -8,7 +10,7 @@ public class BattingScoreDTO {
 	private Integer balls;
 	private Integer fours;
 	private Integer sixers;
-	private Float strikeRate;
+	private Double strikeRate;
 	private Boolean dismissed = false;
 
 	public BattingScoreDTO(String string, String string2, String string3, int i, int j, int k, int l) {
@@ -49,6 +51,7 @@ public class BattingScoreDTO {
 
 	public void setBowledBy(String bowledBy) {
 		this.bowledBy = bowledBy;
+		this.setDismissed();
 	}
 
 	public Integer getRuns() {
@@ -85,15 +88,15 @@ public class BattingScoreDTO {
 		this.sixers = sixers;
 	}
 
-	public Float getStrikeRate() {
+	public Double getStrikeRate() {
 		return strikeRate;
 	}
 
 	private void setStrikeRate() {
 		if (this.balls == null || this.balls == 0)
-			this.strikeRate = 0.0f;
+			this.strikeRate = 0.0;
 		else {
-			this.strikeRate = ((float) this.runs / (float) this.balls) * 100;
+			this.strikeRate = Utility.round(((double) this.runs / (double) this.balls) * 100, 2);
 		}
 	}
 

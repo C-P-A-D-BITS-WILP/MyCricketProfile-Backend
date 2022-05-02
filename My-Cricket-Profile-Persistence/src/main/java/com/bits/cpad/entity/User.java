@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -46,6 +47,12 @@ public class User {
 	@ManyToMany(mappedBy = "players", fetch = FetchType.LAZY)
 	private List<Team> teams;
 
+	@OneToMany(mappedBy = "player", fetch = FetchType.LAZY)
+	private List<BattingScore> battingScores;
+
+	@OneToMany(mappedBy = "player", fetch = FetchType.LAZY)
+	private List<BowlingScore> bowlingScores;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -126,4 +133,21 @@ public class User {
 		this.role = role;
 	}
 
+	public List<BattingScore> getBattingScores() {
+		return battingScores;
+	}
+
+	public void setBattingScores(List<BattingScore> battingScores) {
+		this.battingScores = battingScores;
+	}
+
+	public List<BowlingScore> getBowlingScores() {
+		return bowlingScores;
+	}
+
+	public void setBowlingScores(List<BowlingScore> bowlingScores) {
+		this.bowlingScores = bowlingScores;
+	}
+
+	
 }

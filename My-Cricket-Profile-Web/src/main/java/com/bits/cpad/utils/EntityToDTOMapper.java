@@ -16,12 +16,12 @@ import com.bits.cpad.dto.UserDTO;
 import com.bits.cpad.entity.BattingScore;
 import com.bits.cpad.entity.BowlingScore;
 import com.bits.cpad.entity.CricketMatch;
-import com.bits.cpad.entity.InningsScore;
 import com.bits.cpad.entity.ScoreCard;
 import com.bits.cpad.entity.Team;
 import com.bits.cpad.entity.TeamMembers;
 import com.bits.cpad.entity.Tournament;
 import com.bits.cpad.entity.User;
+import com.bits.cpad.testds.ScoreCardDS;
 
 public class EntityToDTOMapper {
 	public static List<TournamentDTO> getTournament(List<Tournament> tournamentList) {
@@ -104,6 +104,7 @@ public class EntityToDTOMapper {
 		if (entity != null) {
 			dto.setId(entity.getId());
 			dto.setName(entity.getUserFName() + " " + entity.getUserLName());
+			dto.setDob(entity.getDob());
 			dto.setAge(Utility.getAge(entity.getDob()));
 			dto.setBattingStyle(entity.getBattingStyle());
 			dto.setBowlingStyle(entity.getBowlingStyle());
@@ -124,15 +125,19 @@ public class EntityToDTOMapper {
 	}
 
 	public static List<DashboardScoreCardDTO> getDashboardScoreCard(List<CricketMatch> matchList) {
-		List<DashboardScoreCardDTO> DashboardScoreCardDTOs = null;
+		List<DashboardScoreCardDTO> dashboardScoreCardDTOs = null;
 
 		if (matchList != null && matchList.size() > 0) {
-			DashboardScoreCardDTOs = matchList.stream().map(match -> {
+			dashboardScoreCardDTOs = matchList.stream().map(match -> {
 				DashboardScoreCardDTO dto = getDashboardScoreCard(match);
 				return dto;
 			}).collect(Collectors.toList());
 		}
-		return DashboardScoreCardDTOs;
+		
+		// TODO: Remove the below line. Its used only for the demo
+		dashboardScoreCardDTOs.addAll(ScoreCardDS.populateDummyData());
+		
+		return dashboardScoreCardDTOs;
 	}
 
 	private static DashboardScoreCardDTO getDashboardScoreCard(CricketMatch entity) {
@@ -176,6 +181,7 @@ public class EntityToDTOMapper {
 		dto.setBattingScores(getBattingScores(scoreCard.getInnings1().getBattingScore()));
 		dto.setBowlingTeamName(scoreCard.getInnings1().getBowlingTeam().getTeamName());
 		dto.setBowlingScores(getBowlingScores(scoreCard.getInnings1().getBowlingScore()));
+		dto.setExtras(scoreCard.getInnings1().getExtras());
 		inningsDTOList.add(dto);
 
 		// Innings 2
@@ -187,6 +193,7 @@ public class EntityToDTOMapper {
 		dto.setBattingScores(getBattingScores(scoreCard.getInnings2().getBattingScore()));
 		dto.setBowlingTeamName(scoreCard.getInnings2().getBowlingTeam().getTeamName());
 		dto.setBowlingScores(getBowlingScores(scoreCard.getInnings2().getBowlingScore()));
+		dto.setExtras(scoreCard.getInnings2().getExtras());
 		inningsDTOList.add(dto);
 
 		return inningsDTOList;
@@ -202,6 +209,8 @@ public class EntityToDTOMapper {
 				dto.setOvers(score.getOvers());
 				dto.setRunsGiven(score.getRunsGiven());
 				dto.setWickets(score.getWickets());
+				dto.setNoBalls(score.getNoBalls());
+				dto.setWides(score.getWides());
 				return dto;
 			}).collect(Collectors.toList());
 		}

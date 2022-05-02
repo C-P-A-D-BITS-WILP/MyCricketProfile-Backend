@@ -20,8 +20,6 @@ public class BowlingScore {
 
 	private Double overs;
 
-	private Integer fiver;
-
 	private Integer maidens;
 
 	@Column(name = "runs_given")
@@ -37,6 +35,11 @@ public class BowlingScore {
 	@JoinColumn(name = "innings_fk")
 	private InningsScore innings;
 
+	@Column(name = "no_balls")
+	private Integer noBalls;
+
+	private Integer wides;
+
 	public Integer getId() {
 		return id;
 	}
@@ -51,14 +54,6 @@ public class BowlingScore {
 
 	public void setOvers(Double overs) {
 		this.overs = overs;
-	}
-
-	public Integer getFiver() {
-		return fiver;
-	}
-
-	public void setFiver(Integer fiver) {
-		this.fiver = fiver;
 	}
 
 	public Integer getMaidens() {
@@ -101,4 +96,20 @@ public class BowlingScore {
 		this.innings = innings;
 	}
 
+	public Integer getNoBalls() {
+		return noBalls;
+	}
+
+	public void setNoBalls(Integer noBalls) {
+		this.noBalls = noBalls;
+	}
+
+	public Integer getWides() {
+		return wides;
+	}
+
+	public void setWides(Integer wides) {
+		this.wides = wides;
+	}
+	
 }
